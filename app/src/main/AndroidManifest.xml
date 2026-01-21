@@ -12,10 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.D424softwareengineeringcapstonee">
         <activity
-            android:name=".TripList"
+            android:name=".activities.ConfDetails"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.TripDetails"
+            android:exported="false" />
+        <activity
+            android:name=".activities.TripList"
+            android:exported="false" />
+        <activity
+            android:name=".activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
