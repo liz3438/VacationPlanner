@@ -3,72 +3,44 @@ package com.example.d424_software_engineering_capstonee.entities;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-public class Conference {
-    @Entity(tableName = "trips")
-    public class Trip {
+    @Entity(tableName = "conferences")
+    public class Conference {
         @PrimaryKey(autoGenerate = true)
+        private int conferenceID;
+        private String conferenceName;
+        private String date;
         private int tripID;
-        private String tripName;
-        private double price;
 
-        private String hotel;
-        private String startDate;
-        private String endDate;
+        public Conference(String conferenceName, String date, int tripID) {
 
-        public Trip(double price, String tripName, String hotel, String startDate, String endDate) {
-
-            this.price = price;
-            this.tripName = tripName;
-            this.hotel= hotel;
-            this.startDate = startDate;
-            this.endDate = endDate;
-
-
-        }
-
-        public int getTripID() {
-            return tripID;
-        }
-
-        public void setTripIDID(int tripID) {
+            this.conferenceName = conferenceName;
             this.tripID = tripID;
+            this.date= date;
+
+
         }
 
-        public double getPrice() {
-            return price;
+        public int getConferenceID() {
+            return conferenceID;
         }
 
-        public void setPrice(double price) {
-            this.price = price;
+        public void setConferenceID(int conferenceID) {
+            this.conferenceID = conferenceID;
         }
 
-        public String getTripName() {
-            return tripName;
+        public String getConferenceName() {
+            return conferenceName;
         }
 
-        public void setTripName(String tripName) {
-            this.tripName = tripName;
+        public void setConferenceName(String conferenceName) {
+            this.conferenceName = conferenceName;
         }
-
-        public String getHotel(){
-            return hotel;
+        public String getDate(){
+            return date;
         }
-
-        public void setHotel(String hotel) {
-            this.hotel = hotel;
-        }
-        public String getStartDate(){
-            return startDate;
-        }
-        public void setStartDate(String startDate){
-            this.startDate = startDate;
-        }
-        public  String getEndDate(){
-            return endDate;
-        }
-        public void setEndDate(String endDate){
-            this.endDate = endDate;
+        public void setDate(String date) {
+            this.date = date;
         }
     }
 
-}
+
