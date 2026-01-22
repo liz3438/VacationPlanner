@@ -20,7 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
-    private Button logoutButton;
+    private Button logoutButton, enterButton;
     private VideoView backgroundVideo;
 
     @Override
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         setContentView(R.layout.activity_main);
-
+        enterButton = findViewById(R.id.enterButton);
         logoutButton = findViewById(R.id.logoutButton);
         backgroundVideo = findViewById(R.id.backgroundVideo);
 
@@ -47,7 +47,16 @@ public class MainActivity extends AppCompatActivity {
                 logout();
             }
         });
+        enterButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, TripList.class);
+                startActivity(intent);
+            }
+        });
+
     }
+
 
     private void setUpBackgroundVideo() {
         Uri video = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.background_animation);
