@@ -1,6 +1,12 @@
 package com.example.d424_software_engineering_capstonee.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.VideoView;
+import android.media.MediaPlayer;
+import android.net.Uri;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,18 +15,84 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.d424_software_engineering_capstonee.R;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
+    private FirebaseAuth mAuth;
+    private Button logoutButton;
+    private VideoView backgroundVideo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
+
+        mAuth = FirebaseAuth.getInstance();
+
+        if (mAuth.getCurrentUser() == null) {
+            navigateToLogin();
+            return;
+        }
+
         setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+
+        logoutButton = findViewById(R.id.logoutButton);
+        backgroundVideo = findViewById(R.id.backgroundVideo);
+
+        setUpBackgroundVideo();
+
+        logoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                logout();
+            }
         });
     }
+
+    private void setUpBackgroundVideo() {
+        Uri video = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.background_animation);
+        backgroundVideo.setVideoURI(video);
+
+        backgroundVideo.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mediaPlayer) {
+                mediaPlayer.setVolume(0f, 0f);
+                mediaPlayer.setLooping(true);
+            }
+        });
+
+        backgroundVideo.start();
+    }
+    @Override
+    protected void onResume(){
+        super.onResume();
+        if(backgroundVideo != null) {
+            backgroundVideo.start();
+        }
+    }
+    @Override
+    protected void onPause(){
+        super.onPause();
+        if(backgroundVideo != null) {
+            backgroundVideo.pause();
+        }
+    }
+
+    private void logout(){
+        mAuth.signOut();
+        navigateToLogin();
+    }
+
+    private void navigateToLogin() {
+        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
+    }
 }
+
+
+
+
+
+
