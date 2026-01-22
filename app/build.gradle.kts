@@ -39,11 +39,11 @@ dependencies {
     implementation(libs.activity)
     implementation(libs.constraintlayout)
     implementation(libs.firebase.auth)
-    implementation(libs.room.common.jvm)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
-
+    implementation("androidx.room:room-runtime:2.8.4")
+    annotationProcessor("androidx.room:room-compiler:2.8.4")
     implementation(platform("com.google.firebase:firebase-bom:34.8.0"))
     implementation("com.google.firebase:firebase-auth")
     implementation("androidx.cardview:cardview:1.0.0")
