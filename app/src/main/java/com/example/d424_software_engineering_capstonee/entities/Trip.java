@@ -21,6 +21,12 @@ public class Trip {
         this.endDate = endDate;
     }
 
+    public int getTripID(){return tripID;}
+
+    public void setTripID(int tripID){
+        this.tripID = tripID;
+    }
+
     public String getTripName() {
         return tripName;
     }

@@ -41,6 +41,14 @@ import androidx.room.PrimaryKey;
         public void setDate(String date) {
             this.date = date;
         }
+
+        public int getTripID() {
+            return tripID;
+        }
+
+        public void setTripID(int tripID) {
+            this.tripID = tripID;
+        }
     }
 
 
