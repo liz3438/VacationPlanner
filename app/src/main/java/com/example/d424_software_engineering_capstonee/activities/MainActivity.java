@@ -45,6 +45,10 @@ public class MainActivity extends AppCompatActivity {
 
         setUpBackgroundVideo();
 
+        if(getSupportActionBar() != null){
+            getSupportActionBar().hide();
+        }
+
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

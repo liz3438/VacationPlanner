@@ -36,6 +36,18 @@ public class TripsFragment extends Fragment {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
     }
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        if(getActivity() != null) {
+            androidx.appcompat.app.ActionBar actionBar =
+                    ((androidx.appcompat.app.AppCompatActivity) getActivity()).getSupportActionBar();
+            if(actionBar != null) {
+                actionBar.setDisplayHomeAsUpEnabled(false);
+            }
+        }
+    }
 
     @Nullable
     @Override
@@ -52,6 +64,7 @@ public class TripsFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
 
         recyclerView = view.findViewById(R.id.vacationRecyclerview);
         repository = new Repository(requireActivity().getApplication());
