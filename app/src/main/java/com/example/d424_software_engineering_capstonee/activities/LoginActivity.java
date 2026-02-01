@@ -52,6 +52,11 @@ private FirebaseAuth mAuth;
         setUpListeners();
 
 
+        if(getSupportActionBar() != null){
+            getSupportActionBar().hide();
+        }
+
+
 
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -60,6 +65,7 @@ private FirebaseAuth mAuth;
             return insets;
         });
     }
+
     private void initializeViews() {
         emailEditText = findViewById(R.id.emailEditText);
         passwordEditText= findViewById(R.id.passwordEditText);
