@@ -173,7 +173,7 @@ public class TripDetails extends AppCompatActivity {
             getSupportActionBar().setTitle("Trip Details");
         }
 
-        FloatingActionButton fab = findViewById(R.id.floatingActionButton);
+        FloatingActionButton fab = findViewById(R.id.floatingActionButton2);
         editName = findViewById(R.id.vacationname);
         editPrice = findViewById(R.id.pricetext);
         hotelName = findViewById(R.id.hotel);

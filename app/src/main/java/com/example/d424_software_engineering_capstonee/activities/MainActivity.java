@@ -23,6 +23,7 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
+    public static int numAlert = 0;
     private FirebaseAuth mAuth;
     private Button logoutButton, enterButton;
     private VideoView backgroundVideo;
