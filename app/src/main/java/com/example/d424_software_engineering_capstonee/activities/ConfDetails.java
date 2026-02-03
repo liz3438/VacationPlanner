@@ -14,6 +14,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+import androidx.appcompat.widget.Toolbar;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -49,9 +50,20 @@ public class ConfDetails extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_conf_details);
+
+        Toolbar toolbar = findViewById(R.id.toolbar2);
+        setSupportActionBar(toolbar);
+
+        if(getSupportActionBar() != null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+            getSupportActionBar().setTitle("Conference Details");
+        }
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -191,7 +203,7 @@ public class ConfDetails extends AppCompatActivity {
 
             if(!isExcursionDateInVacation(excursionDateText, prodID)){
 
-                editDate.setError("Excursion date must be during the vacation.");
+                editDate.setError("Conference date must be during the vacation.");
                 editDate.setTextColor(getResources().getColor(android.R.color.holo_red_dark));
                 Toast.makeText(this, "Excursion date must be during the vacation dates.", Toast.LENGTH_LONG).show();
                 return true;

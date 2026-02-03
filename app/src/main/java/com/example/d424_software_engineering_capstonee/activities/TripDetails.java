@@ -116,7 +116,7 @@ public class TripDetails extends AppCompatActivity {
         int day = calendar.get(Calendar.DAY_OF_MONTH);
 
         DatePickerDialog datePickerDialog = new DatePickerDialog(this, (view, selectedYear, selectedMonth, selectedDay) -> {
-            String date = String.format("%02d/%02/%04d",
+            String date = String.format("%02d/%02d/%04d",
                     selectedMonth + 1, selectedDay, selectedYear);
             dateField.setText(date);
         },
