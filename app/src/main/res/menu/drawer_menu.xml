@@ -12,6 +12,10 @@
             android:id="@+id/nav_my_trips"
             android:icon="@android:drawable/ic_menu_compass"
             android:title="My Trips"/>
+        <item
+            android:id="@+id/nav_searchable"
+            android:icon="@android:drawable/ic_menu_search"
+            android:title="Search"/>
 
     </group>
 
