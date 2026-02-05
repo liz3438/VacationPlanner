@@ -1,5 +1,6 @@
 package com.example.d424_software_engineering_capstonee.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -73,7 +74,13 @@ public class HomeActivity extends AppCompatActivity
             return true;
         } else if (id == R.id.nav_my_trips) {
             selectedFragment = new TripsFragment();
-        } else if (id == R.id.nav_generate_reports) {
+        } else if (id == R.id.nav_searchable){
+            Intent intent = new Intent(this, SearchActivity.class);
+            startActivity(intent);
+            drawerLayout.closeDrawer(GravityCompat.START);
+            return true;
+        }
+        else if (id == R.id.nav_generate_reports) {
             selectedFragment = new ReportsFragment();
         } else if (id == R.id.nav_take_notes) {
             selectedFragment = new NotesFragment();

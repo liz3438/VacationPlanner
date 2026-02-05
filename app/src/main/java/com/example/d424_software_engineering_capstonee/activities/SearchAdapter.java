@@ -62,6 +62,10 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
     public int getItemCount(){
         return results.size();
     }
+    public void setResults(List<Search> results){
+        this.results = results;
+        notifyDataSetChanged();
+    }
     static class ViewHolder extends RecyclerView.ViewHolder{
         TextView typeBadge, title, details, dates, price;
 
