@@ -25,6 +25,9 @@
         <activity android:name=".activities.SearchActivity"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
             android:exported="false"/>
+        <activity android:name=".activities.ReportActivity"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+            android:exported="false"/>
         <activity
             android:name=".activities.LoginActivity"
             android:exported="true"
