@@ -12,6 +12,6 @@
         android:id="@+id/set_end_alert"
         app:showAsAction="never"/>
     <item android:id="@+id/share_vacation"
-        android:title="Share vacation"
+        android:title="Share trip"
         app:showAsAction="ifRoom"/>
 </menu>

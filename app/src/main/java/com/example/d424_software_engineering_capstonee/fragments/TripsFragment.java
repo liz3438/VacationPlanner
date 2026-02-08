@@ -8,9 +8,13 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -30,6 +34,7 @@ public class TripsFragment extends Fragment {
     private Repository repository;
     private RecyclerView recyclerView;
     private TripAdapter tripAdapter;
+    private View emptyTripsView;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState){
@@ -65,7 +70,7 @@ public class TripsFragment extends Fragment {
             }
         });
 
-
+        emptyTripsView = view.findViewById(R.id.empty_trips);
         recyclerView = view.findViewById(R.id.vacationRecyclerview);
         repository = new Repository(requireActivity().getApplication());
 
@@ -79,7 +84,13 @@ public class TripsFragment extends Fragment {
     }
     private void loadTrips() {
         List<Trip> allTrips = repository.getmAllTrips();
-        tripAdapter.setTrips(allTrips);
+        //tripAdapter.setTrips(allTrips);
+        if(allTrips==null || allTrips.isEmpty()){
+            showEmpty();
+        } else {
+            emptyState();
+            tripAdapter.setTrips(allTrips);
+        }
     }
 
     @Override
@@ -120,5 +131,33 @@ public class TripsFragment extends Fragment {
         loadTrips();
 
 
+    }
+    //Animations
+    private void showEmpty(){
+        recyclerView.setVisibility(View.GONE);
+        emptyTripsView.setVisibility(View.VISIBLE);
+
+        Animation fadeIn = AnimationUtils.loadAnimation(getContext(), R.anim.fade);
+        emptyTripsView.startAnimation(fadeIn);
+
+        ImageView icon = emptyTripsView.findViewById(R.id.icon);
+        if(icon != null){
+            Animation pulse = AnimationUtils.loadAnimation(getContext(),R.anim.pulsing);
+            icon.startAnimation(pulse);
+        }
+        ImageView arrow = emptyTripsView.findViewById(R.id.arrow);
+        if(arrow != null){
+            Animation bounce = AnimationUtils.loadAnimation(getContext(),R.anim.bouncing);
+            arrow.startAnimation(bounce);
+        }
+        CardView hint = emptyTripsView.findViewById(R.id.hints);
+        if(hint != null){
+            Animation pulse = AnimationUtils.loadAnimation(getContext(), R.anim.pulsing);
+            hint.startAnimation(pulse);
+        }
+    }
+    private void emptyState(){
+        recyclerView.setVisibility(View.VISIBLE);
+        emptyTripsView.setVisibility(View.GONE);
     }
 }

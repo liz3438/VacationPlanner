@@ -62,7 +62,10 @@ public class TripDetails extends AppCompatActivity {
             SimpleDateFormat sf = new SimpleDateFormat("MM/dd/yyyy", Locale.US);
             Date alertDate = sf.parse(date);
 
-            if(alertDate == null) return;
+            if(alertDate == null){
+                Toast.makeText(this, "Invalid date", Toast.LENGTH_SHORT).show();
+                return;
+            }
 
             Intent intent = new Intent(this, NotificationReceiver.class);
             intent.putExtra("title", "Trip Alert: " + vacationTitle);

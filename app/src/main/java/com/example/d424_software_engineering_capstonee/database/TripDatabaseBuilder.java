@@ -9,7 +9,7 @@ import com.example.d424_software_engineering_capstonee.entities.Trip;
 import com.example.d424_software_engineering_capstonee.dao.ConfDao;
 import com.example.d424_software_engineering_capstonee.dao.TripDao;
 
-@Database(entities = {Trip.class, Conference.class}, version = 1, exportSchema = false)
+@Database(entities = {Trip.class, Conference.class}, version = 3, exportSchema = false)
 public abstract class TripDatabaseBuilder extends RoomDatabase {
 
     public abstract TripDao tripDao();
