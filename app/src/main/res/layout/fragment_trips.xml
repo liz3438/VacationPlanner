@@ -21,8 +21,14 @@
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
+        android:layout_gravity="bottom|center_horizontal"
         android:layout_margin="16dp"
-        android:src="@android:drawable/ic_input_add"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/outline_add_box_24"
+        />
+        <!--android:src="@android:drawable/outline_add_box_24"-->
+
 <!--</androidx.coordinatorlayout.widget.CoordinatorLayout>-->
 </FrameLayout>
