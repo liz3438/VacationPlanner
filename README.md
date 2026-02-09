@@ -28,3 +28,6 @@ The user can set an alert notifications from the menu and also can share the tri
 6. Selecting a conference from the details page or tapping the add button, takes the user to the 
 conference details page. Here, a user can edit the details and save a conference.
 7. A trip can not be deleted unless the associated conferences are deleted first.
+
+Credits:
+JuliusH. (2020, September 17). Pixabay. Retrieved from Pixabay: https://pixabay.com/videos/plane-jet-clouds-3d-animation-49328/
