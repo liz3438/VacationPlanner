@@ -31,3 +31,4 @@ conference details page. Here, a user can edit the details and save a conference
 
 Credits:
 JuliusH. (2020, September 17). Pixabay. Retrieved from Pixabay: https://pixabay.com/videos/plane-jet-clouds-3d-animation-49328/
+ Sokell, S. (2020, August 3). Pixabay. Retrieved from Pixabay: https://iconscout.com/3d-icon/travel-3d-icon_8973832
