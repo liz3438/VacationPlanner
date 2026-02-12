@@ -1,5 +1,8 @@
 package com.example.d424_software_engineering_capstonee.fragments;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,7 +33,14 @@ public class NotesFragment extends Fragment {
         saveButton.setOnClickListener(v->{
             String note = noteEdit.getText().toString();
             if(!note.isEmpty()){
-                Toast.makeText(getContext(), "Note saved!", Toast.LENGTH_SHORT).show();
+                String title = noteEdit.getText().toString().trim();
+                String content = noteEdit.getText().toString().trim();
+                String noteText = "Title: " + title + "\n\n" + content;
+
+                ClipboardManager clipboard = (ClipboardManager) requireActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("Trip Note", noteText);
+                clipboard.setPrimaryClip(clip);
+                Toast.makeText(getContext(), "Note saved to clipboard!", Toast.LENGTH_SHORT).show();
                 noteEdit.setText("");
             } else {
                 Toast.makeText(getContext(), "Please enter a note", Toast.LENGTH_SHORT).show();
